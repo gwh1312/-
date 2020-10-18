@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="container">
+
+    </ul>
+    <script>
+        var fragment = document.createDocumentFragment();
+        for (let i = 0; i < 1000; i++) {
+            const li = document.createElement('li');
+            li.innerHTML = i;
+            fragment.appendChild(li)            
+        }
+        document.getElementById('container').appendChild(fragment);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>es6中的class语法</h1>
+    <script>
+        // 构造函数
+        // function Person() {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.say = function () {
+        //         cosnole.log('hello world')
+        //     }
+        // }
+
+        // class语法
+        class Person {
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+            say() {
+                console.log('My name is ' + this.name )
+            }
+        }
+        Person.height = 100;
+        let zhangsan = new Person('zhangsan')
+        console.log(zhangsan.height)
+        zhangsan.say()
+    </script>
+</body>
+</html>

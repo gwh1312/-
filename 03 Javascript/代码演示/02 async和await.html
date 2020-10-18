@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">发送ajax</button>
+    <script src="./js/jquery1.4.js"></script>
+    <script>
+        // 1. 同步  代码从上往下执行  遇到同步 就会一直等 等到完成 才会继续执行
+        //    异步  代码从上往下执行   遇到异步 就会先执行后面的代码    异步的代码后面执行
+        // 2. ajax的问题   回调地狱
+        $.ajax({
+            url:'',
+            success:function() {
+                console.log(1)
+            }
+        })
+        // 哪些是异步? 1. 定时器 2. ajax 3. 事件处理 4. nodejs 读取文件也有异步
+
+        // async await 最简单的使用就是可以省略then简单快捷
+        document.getElementById('btn').onclick = async ()=>{
+            let res = await axios(); // 这里会等待成功 才执行下面
+            console.log('结果',res)
+        }
+        // 3. axios就是ajax用promise进行封装
+        // 4 .async await async/await使得异步代码看起来像同步代码,这正是它的魔力所在
+        // 5. async+await 原理 generate+yield
+        // async函数就是Generator函数的语法糖
+        /* Generator 函数是ES6提供的一种异步编程解决方案,语法行为上与传统函数完全不同,
+        本章详细介绍Generator
+        Generator函数有多种理解角度,语法上,首先可以把它理解成,Generator函数是一个状态机,封装了多个内部状态
+        执行Generator函数会返回一个遍历器对象,也就是说Generator函数除了状态机,还是一个遍历器对象
+        形式上 Generator函数是一个普通函数,
+        但是有两个特征,一是function关键字与函数名之间有一个星号;二是函数内部使用yield表达式
+
+        */
+       function* helloGenerator() {
+           yield 'hello';
+           yield 'world';
+           return 'endding';
+       }
+       var hw = helloGenerator();
+       console.log(hw.next());
+       console.log(hw.next());
+       console.log(hw.next());
+    </script>
+</body>
+</html>
