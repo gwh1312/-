@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 装饰器是一个函数 他可以给类  或者属性方法  加上一些其他东西
+        // 实现一些代码的复用 大家习惯之后  代码会很简洁
+        function test() {
+            cosnole.log('我是test函数')
+        }
+        // 在类或者类属性方法  前面写上@函数名  就相当于要调用这个函数
+        @test
+        class MyTestClass{
+
+        }
+    </script>
+</body>
+</html>
